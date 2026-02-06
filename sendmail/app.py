@@ -14,6 +14,7 @@ message["from"] = "Gwaka"
 message["to"] = "gwaka94@gmail.com"
 message["subject"] = "Test Email"
 body = template.substitute({"name": "Robert Redempta"})
+# body = template.substitute(name="Robert Redempta")
 message.attach(MIMEText(body, "plain"))
 # message.attach(MIMEImage(Path("python.png").read_bytes(), name="python.png"))
 
