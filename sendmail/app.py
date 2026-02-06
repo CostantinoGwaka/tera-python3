@@ -3,14 +3,20 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from pathlib import Path
 import smtplib
+from string import Template
+
+
+template = Template(Path("template.html").read_text())
 
 
 message = MIMEMultipart()
 message["from"] = "Gwaka"
 message["to"] = "gwaka94@gmail.com"
 message["subject"] = "Test Email"
-message.attach(MIMEText("This is a test email sent from Python.", "plain"))
+body = template.substitute({"name": "Robert Redempta"})
+message.attach(MIMEText(body, "plain"))
 # message.attach(MIMEImage(Path("python.png").read_bytes(), name="python.png"))
+
 
 with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
     smtp.ehlo()
