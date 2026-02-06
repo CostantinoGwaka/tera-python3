@@ -1,0 +1,34 @@
+import json
+from pathlib import Path
+
+# movies = [
+#     {
+#         "id": 1,
+#         "title": "The Shawshank Redemption",
+#         "year": 1994,
+#         "director": "Frank Darabont",
+#         "genre": "Drama"
+#     },
+#     {
+#         "id": 2,
+#         "title": "The Godfather",
+#         "year": 1972,
+#         "director": "Francis Ford Coppola",
+#         "genre": "Crime"
+#     },
+#     {
+#         "id": 3,
+#         "title": "The Dark Knight",
+#         "year": 2008,
+#         "director": "Christopher Nolan",
+#         "genre": "Action"
+#     }
+# ]
+
+# data = json.dumps(movies, indent=4)
+# Path("movies.json").write_text(data)
+# print(data)
+
+data = Path("movies.json").read_text()
+movies = json.loads(data)
+print(movies)
